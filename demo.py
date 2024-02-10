@@ -97,7 +97,7 @@ if __name__ == "__main__":
     print(statement1)
 
     expressions = expression_to_text(y)
-    statement2="This person is"+expressions
+    statement2="This person is\n"+(expressions)
     print(statement2)
     
     text_to_speech(statement1, statement2)
