@@ -47,12 +47,11 @@ def expression_to_text(y):
     return output
 
 
-def text_to_speech(text1, text2):
-    input=str(text1)+" "+str(text2)
+def text_to_speech(text):
     output = replicate.run(
     "lucataco/whisperspeech-small:70789b0c0bfa6d81964a43545867f34a8f8175572c429e7c3c2869fb6fa5ff95",
     input={
-        "prompt": input,
+        "prompt": text,
         "speaker": "",
         "language": "en"
     })
@@ -97,7 +96,8 @@ if __name__ == "__main__":
     print(statement1)
 
     expressions = expression_to_text(y)
-    statement2="This person is"+expressions
-    print(statement2)
+    statement2="This person is\n"+str(expressions)
+    print(expressions)
     
-    text_to_speech(statement1, statement2)
+    text_to_speech(statement1)
+    text_to_speech(statement2)
